@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+body {
+    background: #25282a;
+}
+
+.wrapper {
+    width: 70%;
+    height: 40em;
+    margin: 100px auto 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper input {
+    display: none;
+}
+
+.wrapper label {
+    cursor: pointer;
+    position: relative;
+    background: #71abfe;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px 0 0;
+    border-radius: 50%;
+}
+
+.wrapper label::after {
+    border: 2px solid #71abfe;
+    content: " ";
+    display: block;
+    height: 13px;
+    width: 13px;
+    border-radius: 50%;
+    left: -1px;
+    top: -1px;
+    position: absolute;
+}
+
+.wrapper label:hover::after {
+    border: 2px solid #ffffff;
+}
+
+.wrapper label:hover {
+    background: #ffffff;
+}
+
+#slide1:checked ~ .bot .controls label:nth-of-type(1),
+#slide2:checked ~ .bot .controls label:nth-of-type(2),
+#slide3:checked ~ .bot .controls label:nth-of-type(3),
+#slide4:checked ~ .bot .controls label:nth-of-type(4),
+#slide5:checked ~ .bot .controls label:nth-of-type(5) {
+    background: #25282a;
+}
+
+
+.controls {
+    margin-top: 10px;
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+}
+
+.slider {
+    background-color: aqua;
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
+.slides {
+    height: inherit;
+    position: absolute;
+    width: inherit;
+    padding: 1em;
+    box-shadow: 0 0 2px #00000050;
+}
+
+.slide1 {
+    background: url(./img/slide1.jpg);
+    background-size: cover;
+}
+.slide2 {
+    background: url(./img/slide2.jpeg);
+    background-size: cover;
+}
+.slide3 {
+    background-image: url(./img/slide3.jpg);
+    background-size: cover;
+}
+.slide4 {
+    background-image: url(./img/slide4.jpg);
+    background-size: cover;
+}
+.slide5 {
+    background-image: url(./img/slide5.jpg);
+    background-size: cover;
+}
+
+#slide1:checked ~ .bot .text-trans::after {
+    content: "wow";
+}
+
+#slide2:checked ~ .bot .text-trans::after {
+    content: 'Когда ты выбирал мемы для этого задания дольше, чем делал задание';
+}
+
+#slide3:checked ~ .bot .text-trans::after {
+    content: 'Когда девушки видят паука >>> паук';
+}
+
+#slide4:checked ~ .bot .text-trans::after {
+    content: 'После дедлайна';
+}
+
+#slide5:checked ~ .bot .text-trans::after {
+    content: 'Нормальный ЯП. >> Я. >> JS';
+}
+
+#slide1:checked ~ .slider > .slide1,
+#slide2:checked ~ .slider > .slide2,
+#slide3:checked ~ .slider > .slide3,
+#slide4:checked ~ .slider > .slide4,
+#slide5:checked ~ .slider > .slide5 {
+    opacity: 1;
+    z-index: 1;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+}
+
+.bot {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 321px) {
+    .bot {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .controls {
+        width: 100%;
+        justify-content: center;
+    }
+    .wrapper {
+        height: 15em;
+        margin: 50px auto;
+    }
+
+    .slider {
+        background: none;
+    }
+    .slides {
+        height: 8em;
+    }
+}
